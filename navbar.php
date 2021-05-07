@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,9 +9,11 @@
     <script src="https://kit.fontawesome.com/efe08242e8.js" crossorigin="anonymous"></script>
     <link href="css/style.css" rel="stylesheet">
     <title>Pizzaria Magnus</title>
+</head>
+<?php include("conn.php");?>
     <nav class="navbar  fixed-top navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Pizzaria Magnus</a>
+            <a class="navbar-brand" href="https://pizzariamagnus.fun/">Pizzaria Magnus</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -21,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link  active dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link  active dropdown-toggle"  id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </a>
@@ -49,11 +50,8 @@
         </div>
     </nav>
     <br>
-</head>
-
-<body>
-    <!-- Modal Login-->
-    <div class="modal fade" id="exampleModalogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Modal Login-->
+      <div class="modal fade" id="exampleModalogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -81,7 +79,9 @@
                         <p>Ainda não é nosso cliente?</p>
                     </div>
                     <div align="center">
-                    <button type="button"  class="btn btn-outline-warning" data-bs-dismiss="modal">Clique aqui e cadastre-se</button>
+                        <a href="cadastro.php">
+                    <button type="button"  class="btn btn-outline-warning">Clique aqui e cadastre-se</button>
+                    </a>
                 </div>
                 </div>
                 <div class="modal-footer">
@@ -204,135 +204,3 @@
             </div>
         </div>
     </div>
-
-    <div style="padding-top:50px;" class="container-fluid">
-        <div class="container-lg">
-            <div class="row align-items-center" align="center">
-                <div class="col">
-                    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="100">
-                                <img src="img/pizza4.png" style="width:300px; height:300px;" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="img/pizza2.png" style="width:300px; height:300px;" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/pizza3.png" style="width:300px; height:300px;" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="../img/logo.png" style="width:300px; height:300px;" alt="..." />
-                </div>
-            </div>
-
-            <br>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal1">Veja o nosso cardápio</button>
-            </div>
-            <br>
-            <div class="row align-items-center" align="center">
-                <div class="col">
-                    <div class="card" style="width: 20rem;">
-                        <img src="../img/pizza1.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text" style="text-align:center;">
-                                Pizza Salgada
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 20rem;">
-                        <img src="../img/pizzadoce.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text" style="text-align:center;">
-                                Pizza Doce
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 20rem;">
-                        <img src="../img/porcoes.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text" style="text-align:center;">
-                                Porções
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Faça seu
-                pedido</button>
-        </div>
-        <br>
-    </div>
-    <footer class="bd-footer p-3 p-md-5 mt-5 text-light bg-dark text-center text-sm-start">
-        <div class="row align-items-center" align="center">
-            <div class="col">
-                <img src="../img/logo.png" style="width:300px; height:250px;" alt="..." />
-            </div>
-            <div class="col">
-                <ul>
-                    Contatos
-                </ul>
-                <ul>
-                    Email: teste@teste.com.br
-                </ul>
-                <ul>
-                    Telefone: (11)3245-3333
-                </ul>
-                <ul>
-                    Telefone: (11)95767-7878
-                </ul>
-            </div>
-            <div class="col">
-                Nos encontre nas redes sociais:
-                <div class="row align-items-center">
-                    <div class="col">
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </footer>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
-<script src="js/meu-arquivo.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-
-</html>
