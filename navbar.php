@@ -1,16 +1,29 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+?>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/efe08242e8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js"></script>
     <link href="css/style.css" rel="stylesheet">
     <title>Pizzaria Magnus</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
-<?php include("conn.php");?>
     <nav class="navbar  fixed-top navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://pizzariamagnus.fun/">Pizzaria Magnus</a>
@@ -61,6 +74,7 @@
                 <div class="modal-body">
                     <div class="row align-items-center" align="center">
                         <div class="col align-self-center">
+                        <form>
                             <p>Já é cliente? Logue para acompanhar seu pedido.</p>
                             <p>Email:</p>
                             <div class="input-group mb-3">
@@ -88,6 +102,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-warning">Acessar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -204,3 +219,10 @@
             </div>
         </div>
     </div>
+    <?php
+    include('conn.php');
+    if(isset($_POST['acao'])){
+        $usuario = $_POST['usuario'];
+        $senha = $_POST['senha'];
+    }
+?>

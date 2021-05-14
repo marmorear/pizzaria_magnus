@@ -1,61 +1,67 @@
-<?php include("navbar.php");?>
+<?php include("navbar.php");
+?>
 
 <body>
     <div style="padding-top:50px;" class="container-fluid">
-        <div class="container-sm">
-            <div class="row align-items-center" align="center">
-                <div class="col">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Nome Completo</span>
-                    <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
+        <div class="container-sm" id="app">
+            <div class="row align-items-center"  align="center">
+            
+            <div class="col" align="left">
+                <form method="post" action="salvar.php">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="inputEmail4">E-mail</label>
+                        <input type="email" class="form-control" v-model="email" id="inputEmail4" placeholder="E-mail..." >
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputPassword4">Senha</label>
+                        <input type="password" class="form-control" v-mask="'##########'" v-model="senha" id="inputPassword8" placeholder="Senha...">
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Nome Completo</label>
+                        <input type="text" class="form-control" v-model="nome_cadastro" id="inputAddress" placeholder="Nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">CPF</label>
+                        <input type="text" v-mask="'###.###.###-##'" class="form-control" v-model="cpf" id="inputAddress6" placeholder="CPF...">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">CEP</label>
+                        <input type="text" v-mask="'#####-###'" class="form-control" v-model="cep" id="inputAddress6" placeholder="CEP...">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Endereço</label>
+                        <input type="text" class="form-control" v-model="endereco" id="inputAddress2" placeholder="Endereço...">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Celular</label>
+                        <input type="text" v-mask="'(##)#####-####'"class="form-control" v-model="celular" id="inputAddress7" placeholder="Celular">
+                    </div>
+                    <br> 
+                    
+                        <button @click="salva_dados();"class="btn btn-warning">Cadastrar</button>
+                     
+             </form>
 
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">E-mail</span>
-                    <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Celular</span>
-                    <input type="text" class="form-control" placeholder="Celular" aria-label="Celular" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">E-mail</span>
-                    <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">CEP</span>
-                    <input type="text" class="form-control" placeholder="CEP" aria-label="CEP" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Endereço</span>
-                    <input type="text" class="form-control" placeholder="Endereço" aria-label="Endereço" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Complemento</span>
-                    <input type="text" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
-                    </div>
+                                
+            </div>
                 
-                </div>
-                <div class="col">
-                    <img src="../img/logo.png" style="width:400px; height:400px;" alt="..." />
-                </div>
+            <div class="col">
+                <img src="../img/logo.png" style="width:300px; height:300px;" alt="..." />
             </div>
-            <br>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal1">Finalizar Cadastro</button>
-            </div>
+          
+
+          
+
             <a href="https://pizzariamagnus.fun/">
-                    <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal1">Voltar a página principal</button>
+                    <button class="btn btn-warning" type="button">Voltar a página principal</button>
                     </a>
             <br>
+
         </div>
     </div>
+</div>
 </body>
+
 <?php include("footer.php");?>
