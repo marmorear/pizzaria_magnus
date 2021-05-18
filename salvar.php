@@ -68,10 +68,6 @@ echo '<script type="text/javascript">',
             <div class="col">
                 <img src="../img/logo.png" style="width:300px; height:300px;" alt="..." />
             </div>
-          
-
-          
-
             <a href="https://pizzariamagnus.fun/">
                     <button class="btn btn-warning" type="button">Voltar a página principal</button>
                     </a>

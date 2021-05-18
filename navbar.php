@@ -1,9 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+//session_start();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <!-- Required meta tags -->
     
@@ -71,36 +72,37 @@ header("Access-Control-Allow-Headers: *");
                     <h5 class="modal-title" id="exampleModalLabel">Login</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" >
                     <div class="row align-items-center" align="center">
                         <div class="col align-self-center">
-                        <form>
+                        <form action="login.php" method="post">
                             <p>Já é cliente? Logue para acompanhar seu pedido.</p>
                             <p>Email:</p>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="addon-wrapping"><i
                                         class="fas fa-envelope-open-text"></i></span>
                                 <input type="text" class="form-control" placeholder="Digite aqui seu e-mail..."
-                                    aria-label="Username" aria-describedby="addon-wrapping">
+                                    aria-label="Username" require id="email" name="email" v-model="email_login" aria-describedby="addon-wrapping">
                             </div>
                             <br>
                             <p>Senha:</p>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-key"></i></span>
-                                <input type="password" placeholder="Digite aqui sua senha..." class="form-control" id="inputPassword">
+                                <input type="password" require id="senha" name="senha" v-model="senha_login"placeholder="Digite aqui sua senha..." class="form-control" id="inputPassword">
                             </div>
                         </div>
-                        <p>Ainda não é nosso cliente?</p>
                     </div>
                     <div align="center">
-                        <a href="cadastro.php">
-                    <button type="button"  class="btn btn-outline-warning">Clique aqui e cadastre-se</button>
-                    </a>
+                       
+                    <button type="submit" name="login" class="btn btn-outline-warning">Acessar</button>
+                   
                 </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-warning">Acessar</button>
+                    <a href="cadastro.php">
+                    <button type="button"   class="btn btn-warning">Não é cliente? Cadastre-se!</button>
+                    </a>
                 </div>
                 </form>
             </div>
@@ -220,9 +222,50 @@ header("Access-Control-Allow-Headers: *");
         </div>
     </div>
     <?php
-    include('conn.php');
-    if(isset($_POST['acao'])){
-        $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+
+//login.php
+
+/**
+ * Start the session.
+ */
+
+
+
+require 'conn.php';
+
+if(isset($_POST['login'])){
+    
+    //Retrieve the field values from our login form.
+    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
+    $senhaAttempt = !empty($_POST['senha']) ? trim($_POST['senha']) : null;
+    
+    //Retrieve the user account information for the given email.
+    $sql = "SELECT * FROM cliente WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    
+    //Bind value.
+    $stmt->bindValue(':email', $email);
+    
+    //Execute.
+    $stmt->execute();
+    
+    //Fetch row.
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    if($user === false){
+
+       die('Usuario nao encontrado!');
+       header('Location: index.php');
+    } else{
+        
+        $_SESSION['id'] = $user['idCliente'];
+        $_SESSION['logged_in'] = time();
+        
+        header('Location: home.php');
+        exit;
+
     }
+    
+}
+ 
 ?>

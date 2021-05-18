@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">CEP</label>
-                        <input type="text" v-mask="'#####-###'" class="form-control" v-model="cep" id="inputAddress6" placeholder="CEP...">
+                        <input type="text" v-mask="'#####-###'" class="form-control" v-model="cep" id="inputAddress60" placeholder="CEP...">
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Endereço</label>
