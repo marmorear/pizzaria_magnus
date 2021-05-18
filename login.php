@@ -24,11 +24,8 @@ if(isset($_POST['login'])){
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
   
     if($user == false){
-
-        die('Incorrect email / senha combination!');
-
+    header('Location:index.php');
     } else{
-        
         $validsenha = password_verify($senha, $user['senha']);    
         
             $_SESSION['user_id'] = $user['idCliente'];
@@ -36,8 +33,7 @@ if(isset($_POST['login'])){
             
             header('Location: home.php');
             exit;
-            
-        
+   
     }
     
 }
