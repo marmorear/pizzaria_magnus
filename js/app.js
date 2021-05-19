@@ -20,7 +20,7 @@ new Vue({
         email: this.email,
         celular: this.celular,
         senha: this.senha,
-        cpf:this.cpf
+        cpf:this.cpf,
       };
 
       var json_cadastro =JSON.stringify(json)
@@ -34,5 +34,7 @@ new Vue({
       return formData;
     },
   },
-  mounted: function () {},
+  mounted: function () {
+    
+  },
 });

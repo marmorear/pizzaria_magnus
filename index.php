@@ -3,7 +3,7 @@
     <div style="padding-top:50px;" class="container-fluid">
         <div class="container-lg">
             <div class="row align-items-center" align="center">
-                    <div class="col">
+                    <div class="col" align="center">
                         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
@@ -15,16 +15,13 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="100">
-                                    <img src="img/pizza4.png" style="width:300px; height:300px;" class="d-block w-100"
-                                        alt="...">
+                                    <img src="img/pizza4.png" class="imagem_carrosel" >
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="img/pizza2.png" style="width:300px; height:300px;" class="d-block w-100"
-                                        alt="...">
+                                    <img src="img/pizza2.png"class="imagem_carrosel" >
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/pizza3.png" style="width:300px; height:300px;" class="d-block w-100"
-                                        alt="...">
+                                    <img src="img/pizza3.png" class="imagem_carrosel" >
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"

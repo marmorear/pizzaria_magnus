@@ -1,23 +1,32 @@
-#img {
-    padding-top: 40px;
-    width: 400px;
-    height: 300;
+
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 500px;
+  }
+ 
+ .imagem_carrosel{
+    width: 600px;
+    height: 400px;  
 }
 .containerimg {
-    max-width:200px;
-    max-height:150px;
+    max-width: 200px;
+    max-height: 150px;
     width: auto;
     height: auto;
 }
+
 .containerimg2 {
-    max-width:60px;
-    max-height:60px;
+    max-width: 60px;
+    max-height: 60px;
     width: auto;
     height: auto;
 }
+
 .containerimg3 {
-    max-width:50px;
-    max-height:50px;
+    max-width: 50px;
+    max-height: 50px;
     width: auto;
     height: auto;
 }

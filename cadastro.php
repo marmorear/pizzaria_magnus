@@ -15,7 +15,10 @@
                         </div>
                         <div class="form-group col-md-6">
                         <label for="inputPassword4">Senha</label>
-                        <input type="password" class="form-control" v-mask="'##########'" v-model="senha" id="inputPassword8" placeholder="Senha...">
+                        <input type="password" class="form-control" v-mask="'##########'" maxlength="10" minlength="4" v-model="senha" id="inputPassword8" placeholder="Senha...">
+                        <div id="passwordHelpBlock" class="form-text">
+                         4 até 10 caracteres, contendo apenas letras e números.
+                        </div>
                         </div>
                     </div>
                     <div class="form-group">

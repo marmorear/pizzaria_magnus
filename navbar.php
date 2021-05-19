@@ -1,8 +1,4 @@
-<?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-//session_start();
-?>
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -21,6 +17,8 @@ header("Access-Control-Allow-Headers: *");
 <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
     <link href="css/style.css" rel="stylesheet">
     <title>Pizzaria Magnus</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -75,7 +73,7 @@ header("Access-Control-Allow-Headers: *");
                 <div class="modal-body" >
                     <div class="row align-items-center" align="center">
                         <div class="col align-self-center">
-                        <form action="login.php" method="post">
+                        <form method="post" action="login.php">
                             <p>Já é cliente? Logue para acompanhar seu pedido.</p>
                             <p>Email:</p>
                             <div class="input-group mb-3">
@@ -221,51 +219,4 @@ header("Access-Control-Allow-Headers: *");
             </div>
         </div>
     </div>
-    <?php
-
-//login.php
-
-/**
- * Start the session.
- */
-
-
-
-require 'conn.php';
-
-if(isset($_POST['login'])){
-    
-    //Retrieve the field values from our login form.
-    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
-    $senhaAttempt = !empty($_POST['senha']) ? trim($_POST['senha']) : null;
-    
-    //Retrieve the user account information for the given email.
-    $sql = "SELECT * FROM cliente WHERE email = :email";
-    $stmt = $conn->prepare($sql);
-    
-    //Bind value.
-    $stmt->bindValue(':email', $email);
-    
-    //Execute.
-    $stmt->execute();
-    
-    //Fetch row.
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-    if($user === false){
-
-       die('Usuario nao encontrado!');
-       header('Location: index.php');
-    } else{
-        
-        $_SESSION['id'] = $user['idCliente'];
-        $_SESSION['logged_in'] = time();
-        
-        header('Location: home.php');
-        exit;
-
-    }
-    
-}
  
-?>
